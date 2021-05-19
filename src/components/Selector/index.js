@@ -1,23 +1,27 @@
 import './index.css'
 import React, {useState, useCallback} from 'react'
-import {List} from "../List";
+import {List} from "./List";
 
 
-export const Selector = ({selectorValueIndex, paymentMethodsArr, onSelect}) => {
-    const [status, setStatus] = useState('disable');
+export const Selector = ({selectorValue, paymentMethodsArr, onSelect}) => {
+    const [isOpen, setIsOpen] = useState(false);
 
     const changeStatus = useCallback( () => {
-        setStatus( status === "disable" ? 'enable' : 'disable')
-    }, [status])
+        setIsOpen(!isOpen);
+    }, [isOpen])
+
+    const handleSelect = useCallback((event)=>{
+        onSelect(event.target.outerText);
+        changeStatus()
+    }, [onSelect, changeStatus])
 
     return (
         <div className={'selector'}>
-            <div className={'value'} onClick={changeStatus}>{paymentMethodsArr[selectorValueIndex]}</div>
-            <List valueArr={paymentMethodsArr} onSelect={onSelect} status={status}/>
+            <div className={'value'} onClick={changeStatus}>{selectorValue}</div>
+            <List valueArr={paymentMethodsArr} onSelect={handleSelect} isOpen={isOpen}/>
         </div>
     )
 }
 
 Selector.defaultProps = {
-    selectorValueIndex : 0,
 }

@@ -1,3 +1,10 @@
+import React, {useCallback} from 'react'
+
 export const Input = ({onChange,}) => {
-    return <input onChange={(element)=>onChange(element.target.value)}/>
+
+    const handleChange = useCallback((event)=>{
+        onChange(event.target.value)
+    })
+
+    return <input onChange={handleChange}/>
 }

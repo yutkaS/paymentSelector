@@ -1,18 +1,18 @@
-import {Input} from "../Input";
+import {Input} from "../../../../Input";
 import React from  'react'
 import './index.css'
-import {Button} from "../Button";
 
-export const Requisites = ({type}) => {
+export const Requisites = ({type, onChange}) => {
     switch (type) {
         case 'card' :
           return (
               <div className={'requisites'}>
                 <p>Card number</p>
-                <Input/>
+                <Input onChange={onChange}/>
             </div>
           )
         case 'cash' :
+            onChange('')
             return (
                 <div className={'requisites'}>
                     <p className={'important-text'}>go to cash dispenser!!!</p>
@@ -20,6 +20,7 @@ export const Requisites = ({type}) => {
             )
 
         case 'nature' :
+            onChange('')
             return (
                 <div className={'requisites'}>
                     <p>invalid payment method :(</p>

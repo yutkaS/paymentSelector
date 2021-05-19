@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {PaymentWindow} from './components/PaymentWindow';
+import './index.css'
+import {PaymentWindow} from './components/windows/PaymentWindow';
 import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
   <React.StrictMode>

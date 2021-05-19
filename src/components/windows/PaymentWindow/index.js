@@ -1,7 +1,7 @@
-import React, {useCallback, useState} from 'react'
+import React from 'react'
 import './index.css'
-import {Heading} from "../Heading";
-import {PaymentSettings} from "../PaymentSettings";
+import {Heading} from "../../Heading";
+import {PaymentSettings} from "./PaymentSettings";
 
 
 export const PaymentWindow = () => {
