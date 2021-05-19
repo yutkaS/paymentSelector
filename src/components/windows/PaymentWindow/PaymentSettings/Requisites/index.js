@@ -1,6 +1,7 @@
 import {Input} from "../Input";
 import React from  'react'
 import './index.css'
+import {Button} from "../Button";
 
 export const Requisites = ({type}) => {
     switch (type) {
@@ -11,14 +12,12 @@ export const Requisites = ({type}) => {
                 <Input/>
             </div>
           )
-            break
         case 'cash' :
             return (
                 <div className={'requisites'}>
                     <p className={'important-text'}>go to cash dispenser!!!</p>
                 </div>
             )
-            break
 
         case 'nature' :
             return (
@@ -26,6 +25,5 @@ export const Requisites = ({type}) => {
                     <p>invalid payment method :(</p>
                 </div>
             )
-            break
     }
 }

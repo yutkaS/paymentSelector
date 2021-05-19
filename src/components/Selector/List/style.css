@@ -1,0 +1,19 @@
+.paymentMethod {
+    width: 100px;
+    height: 20px;
+    background: white;
+}
+
+.listElement{
+    border: 2px solid white;
+    background: black;
+    color: white;
+    width: 120px;
+    margin: 1px auto;
+}
+
+.listElement:hover {
+    background: #4b0101;
+    transition: 200ms ease-out;
+    transform: scale(1.1);
+}
