@@ -7,8 +7,9 @@ const inputStyles = {
     transition: '0.4s ease-out',
     transform: 'scale(1.1)',
     borderRadius: '5px',
+    width:'120px',
 }
-export const Value = ({isOpen, value, onClick, onChange}) => {
+export const SelectorValue = ({isOpen, value, onClick, onChange}) => {
     if (isOpen) return (
         <Input onChange={onChange} styles={inputStyles} className={'value active'} autoFocus={true} placeholder={value}/>
     )
