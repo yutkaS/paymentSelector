@@ -1,4 +1,5 @@
 import React, {useCallback} from 'react';
+import './index.css'
 
 export const Input = ({placeholder, autoFocus, styles, onChange, value}) => {
 

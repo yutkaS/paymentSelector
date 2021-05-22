@@ -6,4 +6,5 @@
     height: 700px;
     background: gray;
     text-align: center;
+    user-select: none;
 }

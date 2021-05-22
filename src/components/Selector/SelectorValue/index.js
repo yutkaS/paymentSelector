@@ -1,19 +1,23 @@
-import React from  'react';
+import React, {useEffect} from 'react';
 import {Input} from "../../Input";
 
 const inputStyles = {
-    background:'#016161',
+    background: '#016161',
     color: '#ffb800',
     transition: '0.4s ease-out',
     transform: 'scale(1.1)',
     borderRadius: '5px',
-    width:'120px',
+    width: '120px',
 }
 export const SelectorValue = ({isOpen, value, onClick, onChange}) => {
+
+
+
     if (isOpen) return (
-        <Input onChange={onChange} styles={inputStyles} className={'value active'} autoFocus={true} placeholder={value}/>
+        <Input onChange={onChange} styles={inputStyles} className={'value active'} autoFocus={true}
+               placeholder={value}/>
     )
-    else  return (
+    else return (
         <div onClick={onClick} className={'value'}>{value}</div>
     )
 }
