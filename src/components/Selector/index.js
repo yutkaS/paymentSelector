@@ -17,7 +17,7 @@ export const Selector = ({selectorValue, paymentMethodsArr, onSelect}) => {
         setIsOpen(!isOpen);
     }, [isOpen])
 
-    useEffect(() => {
+    useEffect(()=>{
         const handleClick = () => {
             changeStatus()
             window.removeEventListener('click',handleClick);
@@ -30,6 +30,7 @@ export const Selector = ({selectorValue, paymentMethodsArr, onSelect}) => {
     const handleSelect = useCallback((event) => {
         onSelect(event.target.outerText);
         changeStatus();
+        filterList('');
     }, [onSelect, changeStatus])
 
 

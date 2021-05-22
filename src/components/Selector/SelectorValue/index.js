@@ -1,5 +1,7 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Input} from "../../Input";
+import './index.css'
+import {Img} from "../../Img/Img";
 
 const inputStyles = {
     background: '#016161',
@@ -10,9 +12,6 @@ const inputStyles = {
     width: '120px',
 }
 export const SelectorValue = ({isOpen, value, onClick, onChange}) => {
-
-
-
     if (isOpen) return (
         <Input onChange={onChange} styles={inputStyles} className={'value active'} autoFocus={true}
                placeholder={value}/>

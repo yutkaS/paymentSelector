@@ -24,5 +24,6 @@ export const Requisites = ({type, onChange, value}) => {
                     <p>invalid payment method :(</p>
                 </div>
             )
+        default: break;
     }
 }

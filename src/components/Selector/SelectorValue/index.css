@@ -1,0 +1,10 @@
+.value {
+    user-select: none;
+    width: 120px;
+    border: 2px solid black;
+    height: 20px;
+    background: #016161;
+    margin: 0 auto;
+    color: white;
+    cursor: pointer ;
+}
