@@ -1,10 +1,18 @@
 import './index.css'
-import React, {useState, useCallback, useEffect} from 'react'
+import React, {useState, useCallback, useEffect, useRef} from 'react'
 import {List} from "./List";
 import {Input} from "../Input";
 
 
 export const Selector = ({selectorValue, list, onSelect}) => {
+    const inputStyles = {
+        background: '#016161',
+        color: '#ffb800',
+        transition: '0.4s ease-out',
+        transform: 'scale(1.1)',
+        borderRadius: '5px',
+        width: '120px',
+    }
     const [isOpen, setIsOpen] = useState(false);
     const [methodsList, setMethodsList] = useState(list);
     const [inputValue, setInputValue] = useState(selectorValue);
@@ -16,58 +24,51 @@ export const Selector = ({selectorValue, list, onSelect}) => {
     }, [list, setMethodsList])
 
     const changeStatus = useCallback(() => {
+        (inputValue ? ()=>setInputValue('') : ()=>setInputValue(selectorValue))()
         setIsOpen(!isOpen)
     }, [setIsOpen, isOpen])
 
     const handleSelect = useCallback((event) => {
         onSelect(event.target.outerText);
+        setTimeout(()=>setInputValue(event.target.outerText),10)
         changeStatus();
         filterList('');
-    }, [onSelect, filterList, changeStatus])
+    }, [onSelect, filterList, changeStatus, setInputValue])
 
-    const handleFocus = useCallback(()=>{
+    const handleFocus = useCallback(() => {
         changeStatus();
         setInputValue('')
     })
 
-    const handleDefocus = useCallback(()=>{
-        changeStatus();
-        setInputValue(selectorValue)
-        console.log('дефокус работает');
-        window.removeEventListener('click', handleDefocus);
-    })
+    const selectorRef = useRef(null);
+
+    const handleWindowClick = useCallback((e) => {
+        const isSelectorClick = !!e.path.find((element) => element === selectorRef.current);
+        if (isSelectorClick) return;
+        changeStatus()
+        filterList('')
+    }, [changeStatus])
 
     useEffect(() => {
-        console.log(isOpen);
-        if (isOpen){
-            console.log('подписываюсь');
-            window.addEventListener('click', handleDefocus)
+        if (isOpen) window.addEventListener('click', handleWindowClick);
+        return () => {
+            window.removeEventListener('click', handleWindowClick);
         }
-    }, [isOpen, handleDefocus]);
+    }, [isOpen, handleWindowClick]);
 
-
-
-    const inputStyles = {
-        background: '#016161',
-        color: '#ffb800',
-        transition: '0.4s ease-out',
-        transform: 'scale(1.1)',
-        borderRadius: '5px',
-        width: '120px',
-    }
-
-return (
-    <div className={'selector'}>
-        <Input onFocus={handleFocus}
-               onChange={filterList}
-               styles={inputStyles}
-               className={'value active'}
-               value={inputValue}
-               placeHolder={selectorValue}
-        />
-        <List valueArr={methodsList} onSelect={handleSelect} isOpen={isOpen}/>
-    </div>
-)
+    return (
+        <div className={'selector'} ref={selectorRef}>
+            <Input
+                styles={inputStyles}
+                onChange={filterList}
+                onFocus={handleFocus}
+                isOpen={isOpen}
+                placeHolder={selectorValue}
+                value={inputValue}
+            />
+            <List valueArr={methodsList} onSelect={handleSelect} isOpen={isOpen}/>
+        </div>
+    )
 }
 
 Selector.defaultProps = {}
