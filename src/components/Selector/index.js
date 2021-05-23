@@ -25,18 +25,27 @@ export const Selector = ({selectorValue, list, onSelect}) => {
         filterList('');
     }, [onSelect, filterList, changeStatus])
 
-
-    useEffect(() => {
-        if (isOpen) window.removeEventListener('click', changeStatus)
-        return () => {
-            window.removeEventListener('click', changeStatus)
-        }
-    }, [isOpen, changeStatus]);
-
     const handleFocus = useCallback(()=>{
         changeStatus();
         setInputValue('')
     })
+
+    const handleDefocus = useCallback(()=>{
+        changeStatus();
+        setInputValue(selectorValue)
+        console.log('дефокус работает');
+        window.removeEventListener('click', handleDefocus);
+    })
+
+    useEffect(() => {
+        console.log(isOpen);
+        if (isOpen){
+            console.log('подписываюсь');
+            window.addEventListener('click', handleDefocus)
+        }
+    }, [isOpen, handleDefocus]);
+
+
 
     const inputStyles = {
         background: '#016161',
