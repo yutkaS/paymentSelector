@@ -14,6 +14,7 @@ export const PaymentSettings = () => {
     }
 
     const handleSelectPaymentMethod = useCallback((method) => {
+        console.log('меняю на ', method);
         setPaymentMethod(method);
         setRequisites('');
     }, [setRequisites, setPaymentMethod])
@@ -21,9 +22,21 @@ export const PaymentSettings = () => {
     return(
     <div className={'payment-method'}>
         <p>Choose payment method</p>
-        <Selector selectorValue={paymentMethod} paymentMethodsArr={paymentMethodsArr} onSelect={handleSelectPaymentMethod}/>
-        <Requisites value={requisites} type={paymentMethod} onChange={setRequisites}/>
-        <Button onClick={onSubmit} inputValue={requisites} text={'Submit'}/>
+        <Selector
+            selectorValue={paymentMethod}
+            list={paymentMethodsArr}
+            onSelect={handleSelectPaymentMethod}
+        />
+        <Requisites
+            value={requisites}
+            type={paymentMethod}
+            onChange={setRequisites}
+        />
+        <Button
+            onClick={onSubmit}
+            isActive={!requisites}
+            text={'Submit'}
+        />
     </div>
     )
 }

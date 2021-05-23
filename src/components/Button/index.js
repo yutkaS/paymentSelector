@@ -1,5 +1,5 @@
 import './index.css';
 
-export const Button = ({text, onClick, inputValue}) => (
-    <button disabled={!inputValue} onClick={onClick}>{text}</button>
+export const Button = ({text, onClick, isActive}) => (
+    <button disabled={isActive} onClick={onClick}>{text}</button>
 )

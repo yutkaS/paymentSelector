@@ -1,43 +1,46 @@
 import './index.css'
 import React, {useState, useCallback, useEffect} from 'react'
 import {List} from "./List";
-import {SelectorValue} from "./SelectorValue";
+import {Value} from "./Value";
 
 
-export const Selector = ({selectorValue, paymentMethodsArr, onSelect}) => {
+export const Selector = ({selectorValue, list, onSelect}) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [methodsList, setMethodsList] = useState(paymentMethodsArr);
+    const [methodsList, setMethodsList] = useState(list);
 
-    const filterList = useCallback( (text) => {
-        const newMethods = paymentMethodsArr.filter((e)=>e.slice(0, text.length) === text);
+    const filterList = useCallback((text) => {
+        const newMethods = list.filter((e) => e.slice(0, text.length) === text);
         setMethodsList(newMethods)
-    }, [paymentMethodsArr, setMethodsList])
+    }, [list, setMethodsList])
 
-    const changeStatus = useCallback(() => {
-        setIsOpen(!isOpen);
-    }, [isOpen])
-
-    useEffect(()=>{
-        const handleClick = () => {
-            changeStatus()
-            window.removeEventListener('click',handleClick);
-        }
-
-        if(isOpen) window.addEventListener('click', handleClick);
-
-    }, [isOpen, changeStatus])
+    const changeStatus = useCallback(()=>{
+        setIsOpen(!isOpen)
+    })
 
     const handleSelect = useCallback((event) => {
         onSelect(event.target.outerText);
         changeStatus();
         filterList('');
-    }, [onSelect, changeStatus])
+    }, [onSelect, isOpen])
 
 
 
-        return (
+    useEffect(() => {
+        if (isOpen) window.addEventListener('click', changeStatus);
+        return () => {
+            window.removeEventListener('click', changeStatus);
+        }
+    }, [isOpen, changeStatus]);
+
+    return (
         <div className={'selector'}>
-            <SelectorValue onChange={filterList} onClick={changeStatus} isOpen={isOpen} value={selectorValue}/>
+            <Value
+                onChange={filterList}
+                onFocus={changeStatus}
+                isOpen={isOpen}
+                placeHolder={selectorValue}
+                value={selectorValue}
+            />
             <List valueArr={methodsList} onSelect={handleSelect} isOpen={isOpen}/>
         </div>
     )
