@@ -47,6 +47,7 @@ export const Selector = ({selectorValue, list, onSelect}) => {
         if (isSelectorClick) return;
         changeStatus()
         filterList('')
+        setInputValue(selectorValue)
     }, [changeStatus])
 
     useEffect(() => {
