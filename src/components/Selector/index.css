@@ -1,6 +1,6 @@
 .value {
     user-select: none;
-    width: 120px;
+
     border: 2px solid black;
     height: 20px;
     background: #016161;
@@ -9,3 +9,9 @@
     cursor: pointer ;
 }
 
+.selector{
+    display: flex;
+    flex-direction: column;
+    max-width: 120px;
+    margin: 0 auto;
+}

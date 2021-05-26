@@ -12,6 +12,10 @@
     margin: 1px auto;
 }
 
+.list{
+   margin: 0 auto;
+}
+
 .listElement:hover {
     background: #4b0101;
     transition: 200ms ease-out;

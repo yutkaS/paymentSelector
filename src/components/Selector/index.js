@@ -12,6 +12,7 @@ export const Selector = ({selectorValue, list, onSelect}) => {
         transform: 'scale(1.1)',
         borderRadius: '5px',
         width: '120px',
+        margin: '0 auto',
     }
     const [isOpen, setIsOpen] = useState(false);
     const [methodsList, setMethodsList] = useState(list);
@@ -23,16 +24,25 @@ export const Selector = ({selectorValue, list, onSelect}) => {
         setMethodsList(newMethods)
     }, [list, setMethodsList])
 
+    // const openSelector = useCallback(() => {
+    //     setIsOpen(true)
+    // }, [setIsOpen])
+    //
+    // const closeSelector = useCallback(() => {
+    //     setIsOpen(false)
+    // }, [setIsOpen])
+
     const changeStatus = useCallback(() => {
-        (inputValue ? ()=>setInputValue('') : ()=>setInputValue(selectorValue))()
+        // isOpen ? closeSelector() : openSelector()
         setIsOpen(!isOpen)
     }, [setIsOpen, isOpen])
 
+
     const handleSelect = useCallback((event) => {
-        onSelect(event.target.outerText);
-        setTimeout(()=>setInputValue(event.target.outerText),10)
-        changeStatus();
-        filterList('');
+        const value = event.target.outerText
+        setInputValue(value)
+        onSelect(value);
+        changeStatus()
     }, [onSelect, filterList, changeStatus, setInputValue])
 
     const handleFocus = useCallback(() => {
