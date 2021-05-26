@@ -8,12 +8,12 @@ export const Selector = ({selectorValue, list, onSelect}) => {
     const inputStyles = {
         background: 'white',
         color: 'black',
-        fontSize:'17px',
+        fontSize:'20px',
         transition: '0.4s ease-out',
-        transform: 'scale(1.1)',
+        // transform: 'scale(1.1)',
         borderRadius: '5px',
-        width: '300px',
-        margin: '0 auto',
+        margin: '15px auto',
+        width:'100%',
         cursor: 'pointer',
     }
     const [isOpen, setIsOpen] = useState(false);
@@ -79,7 +79,7 @@ export const Selector = ({selectorValue, list, onSelect}) => {
                 placeHolder={selectorValue}
                 value={inputValue}
             />
-            <List valueArr={methodsList} onSelect={handleSelect} isOpen={isOpen}/>
+            <List valueArr={methodsList} styles={{maxHeight:'100px',}} onSelect={handleSelect} isOpen={isOpen}/>
         </div>
     )
 }

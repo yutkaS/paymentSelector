@@ -1,4 +1,7 @@
 .important-text {
     color: red;
     text-shadow: darkred 2px 2px;
+    font-size: 40px;
+    /*-webkit-text-stroke-width: 1px;*/
+    /*-webkit-text-stroke-color: black;*/
 }

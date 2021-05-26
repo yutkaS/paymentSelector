@@ -4,6 +4,7 @@ import { paymentMethodsArr } from './paymentMethodsList';
 import { Requisites } from "./Requisites";
 import { Button } from "../../../Button";
 import { Paragraph } from "../../../Paragraph";
+import './index.css'
 
 export const PaymentSettings = () => {
     const [paymentMethod, setPaymentMethod] = useState(paymentMethodsArr[0]);

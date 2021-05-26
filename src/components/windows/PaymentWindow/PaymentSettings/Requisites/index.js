@@ -11,10 +11,10 @@ export const Requisites = ({type, onChange, value}) => {
           return (
               <div className={'requisites'}>
                   <Paragraph
-                      text={'Choose payment method'}
-                      styles={{fontSize:'25px', marginTop:'20px', color:'red',}}
+                      text={'Card ID'}
+                      styles={{fontSize:'25px', margin:'5px', color:'red',}}
                   />
-                  <Input value={value} onChange={onChange}/>
+                  <Input placeHolder={'123456789'} styles={{width:'100%', fontSize:'15px',}} value={value} onChange={onChange}/>
             </div>
           )
         case 'cash' :
@@ -24,12 +24,12 @@ export const Requisites = ({type, onChange, value}) => {
                 </div>
             )
 
-        case 'nature' :
+        default:
             return (
                 <div className={'requisites'}>
                     <p>invalid payment method :(</p>
                 </div>
             )
-        default: break;
+
     }
 }

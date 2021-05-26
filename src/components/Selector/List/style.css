@@ -6,29 +6,27 @@
 
 .list {
     border-radius: 5px;
-    margin: 30px auto;
+    margin: 45px auto;
     position: absolute;
     left: 0;
     right: 0;
     border: 2px solid black;
     background: white;
-    overflow-y: scroll;
     text-align: left;
     font-size: 20px;
     overflow-x: hidden;
-    width: 300px;
+    width: 100%;
 }
 
 .listElement {
     margin: 2px 0;
-    padding: 0 10px;
-    width: 300px;
+    padding: 0 15px;
+    transition: 200ms ease-out;
 }
 
 .listElement:hover {
     background: #bfbfbf;
-    transition: 200ms ease-out;
-    transform: scale(1.05);
+    transform: scale(1.03);
     color: white;
 
 }
