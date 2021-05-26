@@ -4,20 +4,31 @@
     background: white;
 }
 
-.listElement{
-    border: 2px solid white;
-    background: black;
-    color: white;
-    width: 120px;
-    margin: 1px auto;
+.list {
+    border-radius: 5px;
+    margin: 30px auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    border: 2px solid black;
+    background: white;
+    overflow-y: scroll;
+    text-align: left;
+    font-size: 20px;
+    overflow-x: hidden;
+    width: 300px;
 }
 
-.list{
-   margin: 0 auto;
+.listElement {
+    margin: 2px 0;
+    padding: 0 10px;
+    width: 300px;
 }
 
 .listElement:hover {
-    background: #4b0101;
+    background: #bfbfbf;
     transition: 200ms ease-out;
-    transform: scale(1.1);
+    transform: scale(1.05);
+    color: white;
+
 }

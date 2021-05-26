@@ -7,10 +7,12 @@ import {PaymentSettings} from "./PaymentSettings";
 export const PaymentWindow = () => {
 
 
-    return(
-        <div className={'PaymentWindow'}>
-            <Heading/>
-            <PaymentSettings/>
+    return (
+        <div className={'wrapper'}>
+            <div className={'PaymentWindow'}>
+                <Heading/>
+                <PaymentSettings/>
+            </div>
         </div>
     )
 }

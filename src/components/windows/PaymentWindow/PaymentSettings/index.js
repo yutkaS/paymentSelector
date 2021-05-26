@@ -3,6 +3,7 @@ import {Selector} from "../../../Selector";
 import { paymentMethodsArr } from './paymentMethodsList';
 import { Requisites } from "./Requisites";
 import { Button } from "../../../Button";
+import { Paragraph } from "../../../Paragraph";
 
 export const PaymentSettings = () => {
     const [paymentMethod, setPaymentMethod] = useState(paymentMethodsArr[0]);
@@ -21,7 +22,10 @@ export const PaymentSettings = () => {
 
     return(
     <div className={'payment-method'}>
-        <p>Choose payment method</p>
+        <Paragraph
+            text={'Choose payment method'}
+            styles={{fontSize:'30px',   color:'#0099e0',}}
+        />
         <Selector
             selectorValue={paymentMethod}
             list={paymentMethodsArr}

@@ -1,12 +1,20 @@
 .PaymentWindow {
-    border: 20px solid white;
-    border-radius: 50px;
-    margin: 100px 200px;
+    border-right: 20px solid white;
+    border-left: 20px solid white;
+    border-radius: 10px;
     padding: 10px;
-    height: 700px;
     background: gray;
     text-align: center;
     user-select: none;
     display: flex;
     flex-direction: column;
+    font-family: Courier New, monospace;
+    height: 100vh;
+    min-width: 300px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.wrapper{
+    padding: 0 150px ;
+    min-width: 700px;
 }

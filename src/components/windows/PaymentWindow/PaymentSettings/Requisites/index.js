@@ -1,14 +1,20 @@
 import {Input} from "../../../../Input";
-import React from  'react'
+import React, {useCallback} from  'react'
 import './index.css'
+import {Paragraph} from "../../../../Paragraph";
 
 export const Requisites = ({type, onChange, value}) => {
+
+
     switch (type) {
         case 'card' :
           return (
               <div className={'requisites'}>
-                <p>Card number</p>
-                <Input value={value} onChange={onChange}/>
+                  <Paragraph
+                      text={'Choose payment method'}
+                      styles={{fontSize:'25px', marginTop:'20px', color:'red',}}
+                  />
+                  <Input value={value} onChange={onChange}/>
             </div>
           )
         case 'cash' :

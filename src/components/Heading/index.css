@@ -1,3 +1,9 @@
 .heading {
-    color: darkred;
+    color: #0052e0;
+    text-shadow: #00e1ea 0 0 5px 1px;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+    margin: 10px 10px 100px 10px;
+    font-size: 50px;
+
 }

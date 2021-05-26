@@ -6,13 +6,15 @@ import {Input} from "../Input";
 
 export const Selector = ({selectorValue, list, onSelect}) => {
     const inputStyles = {
-        background: '#016161',
-        color: '#ffb800',
+        background: 'white',
+        color: 'black',
+        fontSize:'17px',
         transition: '0.4s ease-out',
         transform: 'scale(1.1)',
         borderRadius: '5px',
-        width: '120px',
+        width: '300px',
         margin: '0 auto',
+        cursor: 'pointer',
     }
     const [isOpen, setIsOpen] = useState(false);
     const [methodsList, setMethodsList] = useState(list);
@@ -39,10 +41,10 @@ export const Selector = ({selectorValue, list, onSelect}) => {
 
 
     const handleSelect = useCallback((event) => {
-        const value = event.target.outerText
-        setInputValue(value)
+        const value = event.target.outerText;
         onSelect(value);
-        changeStatus()
+        setInputValue(value);
+        changeStatus();
     }, [onSelect, filterList, changeStatus, setInputValue])
 
     const handleFocus = useCallback(() => {

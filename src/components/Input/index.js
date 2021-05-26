@@ -11,7 +11,7 @@ export const Input = ({onFocus, placeHolder, styles, onChange, value, className}
         onFocus={onFocus}
         placeholder={placeHolder}
         style={styles}
-        className={'input ' + className}
+        className={'input'}
         value={value}
         onChange={handleChange}
     />
