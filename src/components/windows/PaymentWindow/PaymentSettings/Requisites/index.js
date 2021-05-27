@@ -10,11 +10,20 @@ export const Requisites = ({type, onChange, value}) => {
         case 'card' :
           return (
               <div className={'requisites'}>
+                  <div className={'req'}>
                   <Paragraph
                       text={'Card ID'}
                       styles={{fontSize:'25px', margin:'5px', color:'red',}}
                   />
-                  <Input placeHolder={'123456789'} styles={{width:'100%', fontSize:'15px',}} value={value} onChange={onChange}/>
+                  <Input placeHolder={'123456789'} styles={{width:'100%', fontSize:'15px', borderRadius:'5px',}} value={value} onChange={onChange}/>
+                  </div>
+                  {/*<div className={'req'}>*/}
+                  {/*<Paragraph*/}
+                  {/*    text={'CVV'}*/}
+                  {/*    styles={{fontSize:'25px', margin:'5px', color:'red',}}*/}
+                  {/*/>*/}
+                  {/*<Input placeHolder={'123'} styles={{width:'100%', fontSize:'15px', borderRadius:'5px'}} value={value} onChange={onChange}/>*/}
+                  {/*</div>*/}
             </div>
           )
         case 'cash' :

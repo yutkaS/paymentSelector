@@ -79,7 +79,7 @@ export const Selector = ({selectorValue, list, onSelect}) => {
                 placeHolder={selectorValue}
                 value={inputValue}
             />
-            <List valueArr={methodsList} styles={{maxHeight:'100px',}} onSelect={handleSelect} isOpen={isOpen}/>
+            <List items={methodsList} styles={{maxHeight:'100px',}} onSelect={handleSelect} open={isOpen}/>
         </div>
     )
 }

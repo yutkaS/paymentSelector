@@ -5,3 +5,18 @@
     /*-webkit-text-stroke-width: 1px;*/
     /*-webkit-text-stroke-color: black;*/
 }
+
+/*.requisites {*/
+/*    display: flex;*/
+/*    margin: 0 20px;*/
+/*}*/
+
+/*.req:first-child{*/
+/*    flex-grow: 20;*/
+/*    margin: 0 10px;*/
+/*}*/
+
+/*.req:last-child{*/
+/*    max-width: 100px;*/
+/*    margin: 0 10px;*/
+/*}*/
