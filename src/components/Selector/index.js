@@ -1,21 +1,21 @@
 import './index.css'
 import React, {useState, useCallback, useEffect, useRef} from 'react'
+import {PropTypes} from 'prop-types';
 import {List} from "./List";
 import {Input} from "../Input";
+import {inputStyles} from "./inputStyles";
 
 
-export const Selector = ({selectorValue, list, onSelect}) => {
-    const inputStyles = {
-        background: 'white',
-        color: 'black',
-        fontSize:'20px',
-        transition: '0.4s ease-out',
-        // transform: 'scale(1.1)',
-        borderRadius: '5px',
-        margin: '15px auto',
-        width:'100%',
-        cursor: 'pointer',
-    }
+export const Selector = (props) => {
+
+    const {
+        selectorValue,
+        list,
+        onSelect,
+    } = props;
+
+
+
     const [isOpen, setIsOpen] = useState(false);
     const [methodsList, setMethodsList] = useState(list);
     const [inputValue, setInputValue] = useState(selectorValue);
@@ -26,31 +26,22 @@ export const Selector = ({selectorValue, list, onSelect}) => {
         setMethodsList(newMethods)
     }, [list, setMethodsList])
 
-    // const openSelector = useCallback(() => {
-    //     setIsOpen(true)
-    // }, [setIsOpen])
-    //
-    // const closeSelector = useCallback(() => {
-    //     setIsOpen(false)
-    // }, [setIsOpen])
-
     const changeStatus = useCallback(() => {
-        // isOpen ? closeSelector() : openSelector()
         setIsOpen(!isOpen)
     }, [setIsOpen, isOpen])
 
 
     const handleSelect = useCallback((event) => {
         const value = event.target.outerText;
-        onSelect(value);
         setInputValue(value);
         changeStatus();
+        onSelect(value);
     }, [onSelect, filterList, changeStatus, setInputValue])
 
     const handleFocus = useCallback(() => {
         changeStatus();
         setInputValue('')
-    })
+    }, [changeStatus, setInputValue])
 
     const selectorRef = useRef(null);
 
@@ -79,9 +70,16 @@ export const Selector = ({selectorValue, list, onSelect}) => {
                 placeHolder={selectorValue}
                 value={inputValue}
             />
-            <List items={methodsList} styles={{maxHeight:'100px',}} onSelect={handleSelect} open={isOpen}/>
+
+                <List items={methodsList} styles={{maxHeight: '100px',}} onSelect={handleSelect} open={isOpen}/>
+
         </div>
     )
 }
 
-Selector.defaultProps = {}
+Selector.propTypes = {
+    selectorValue:PropTypes.string,
+    list:PropTypes.array,
+    onSelect:PropTypes.func,
+}
+

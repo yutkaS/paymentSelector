@@ -5,8 +5,6 @@ import {PaymentSettings} from "./PaymentSettings";
 
 
 export const PaymentWindow = () => {
-
-
     return (
         <div className={'wrapper'}>
             <div className={'PaymentWindow'}>

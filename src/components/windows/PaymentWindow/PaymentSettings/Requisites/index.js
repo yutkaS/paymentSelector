@@ -1,5 +1,5 @@
 import {Input} from "../../../../Input";
-import React, {useCallback} from  'react'
+import React from  'react'
 import './index.css'
 import {Paragraph} from "../../../../Paragraph";
 
@@ -7,7 +7,8 @@ export const Requisites = ({type, onChange, value}) => {
 
 
     switch (type) {
-        case 'card' :
+        case 'MasterCard' :
+        case 'Visa' :
           return (
               <div className={'requisites'}>
                   <div className={'req'}>
@@ -17,13 +18,6 @@ export const Requisites = ({type, onChange, value}) => {
                   />
                   <Input placeHolder={'123456789'} styles={{width:'100%', fontSize:'15px', borderRadius:'5px',}} value={value} onChange={onChange}/>
                   </div>
-                  {/*<div className={'req'}>*/}
-                  {/*<Paragraph*/}
-                  {/*    text={'CVV'}*/}
-                  {/*    styles={{fontSize:'25px', margin:'5px', color:'red',}}*/}
-                  {/*/>*/}
-                  {/*<Input placeHolder={'123'} styles={{width:'100%', fontSize:'15px', borderRadius:'5px'}} value={value} onChange={onChange}/>*/}
-                  {/*</div>*/}
             </div>
           )
         case 'cash' :

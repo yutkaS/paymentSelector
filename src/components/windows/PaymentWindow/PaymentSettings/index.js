@@ -10,13 +10,12 @@ export const PaymentSettings = () => {
     const [paymentMethod, setPaymentMethod] = useState(paymentMethodsArr[0]);
     const [requisites, setRequisites] = useState('');
 
-    const onSubmit = () => {
+    const onSubmit = useCallback( () => {
         console.log('я отправил енто на сервер', {paymentMethod, requisites});
         setRequisites('');
-    }
+    }, [paymentMethod, requisites, setRequisites,])
 
     const handleSelectPaymentMethod = useCallback((method) => {
-        console.log('меняю на ', method);
         setPaymentMethod(method);
         setRequisites('');
     }, [setRequisites, setPaymentMethod])

@@ -1,1 +1,1 @@
-export const paymentMethodsArr = ['card', 'cash', 'nature',] ;
+export const paymentMethodsArr = ['Visa', 'cash', 'nature', 'MasterCard', 'btc'] ;

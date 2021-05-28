@@ -1,7 +1,18 @@
 import React, {useState, useCallback} from 'react';
-import './index.css'
+import './index.css';
+import {PropTypes} from 'prop-types';
 
-export const Input = ({onFocus, placeHolder, styles, onChange, value, className}) => {
+
+export const Input = (props) => {
+
+    const {
+        onFocus,
+        placeHolder,
+        styles,
+        onChange,
+        value,
+        className,
+    } = props;
 
     const handleChange = useCallback((event) => {
         onChange(event.target.value)
@@ -20,5 +31,15 @@ export const Input = ({onFocus, placeHolder, styles, onChange, value, className}
 Input.defaultProps = {
     autoFocus: false,
     styles: {},
-    onFocus:()=>{},
+    onFocus: () => {
+    },
+}
+
+Input.propTypes = {
+    onFocus:PropTypes.func,
+    placeholder:PropTypes.string,
+    styles:PropTypes.object,
+    onChange:PropTypes.func,
+    value:PropTypes.string,
+    className:PropTypes.string,
 }
