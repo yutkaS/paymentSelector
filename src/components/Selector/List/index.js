@@ -16,7 +16,7 @@ export const List = (props) => {
     } = props;
 
 
-    const animationStyles = open ? {opacity:'100%',  margin:'45px auto', visibility:'visible'} : {opacity:'0', margin:'0 auto', visibility:'hidden'}
+    const animationStyles = open ? {opacity:'100%',  margin:'45px auto', pointerEvents:'auto'} : {opacity:'0', margin:'0 auto', pointerEvents:'none'}
 
     return (
         <div style={{...styles, ...animationStyles}} className={'list'}>{
